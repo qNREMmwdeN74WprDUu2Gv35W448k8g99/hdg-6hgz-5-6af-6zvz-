@@ -1,24 +1,4 @@
-  bot.on("guildMemberAdd", member => {
-    member.guild.channels.find("name", "🌺accueil🌺").send(`Hey ${member}, Bienvenue chez **Exential - Fortnite communautaire** ! \n \nPour avoir ton grade, rend toi dans le channel ` + bot.channels.get("470602253582073862"));
-    if (member.guild.id !== ServerStats.guildID) return;
-    bot.channels.get(ServerStats.memberCountID).setName(`Membres : ${member.guild.members.filter(m => !m.user.bot).size}`);
-    bot.channels.get(ServerStats.botCountID).setName(`Bot : ${member.guild.members.filter(m => m.user.bot).size}`);
-    bot.user.setActivity(`!help | ${bot.users.size} Utilisateurs | ${bot.guilds.size} Serveurs`, {
-        type: "STREAMING",
-        url: "https://www.twitch.tv/exential_krushhd"
-      });
-});
-
-bot.on("guildMemberRemove", member => {
-    if (member.guild.id !== ServerStats.guildID) return;
-    bot.channels.get(ServerStats.memberCountID).setName(`Membres : ${member.guild.members.filter(m => !m.user.bot).size}`);
-    bot.channels.get(ServerStats.botCountID).setName(`Bot : ${member.guild.members.filter(m => m.user.bot).size}`);
-    bot.user.setActivity(`!help | ${bot.users.size} Utilisateurs | ${bot.guilds.size} Serveurs`, {
-        type: "STREAMING",
-        url: "https://www.twitch.tv/exential_krushhd"
-      });
-
-});const Discord = require('discord.js');
+const Discord = require('discord.js');
 const bot = new Discord.Client();
 bot.login(process.env.TOKEN);
 const prefix = ("!")
@@ -32,13 +12,23 @@ const ServerStats = {
     botCountID: '470281756986048522',
 };
 
-bot.on('ready', () => {
-    console.log('Bon on')
-    bot.user.setActivity(`!help | ${bot.users.size} Utilisateurs | ${bot.guilds.size} Serveurs`, {
-        type: "STREAMING",
-        url: "https://www.twitch.tv/exential_krushhd"
-      });
-})
+
+bot.on("ready", () => {
+    bot.user.setActivity(`!help | ${bot.users.size} Utilisateurs | ${bot.guilds.size} Serveurs`);
+  });
+  
+  bot.on("guildCreate", guild => {
+    bot.user.setActivity(`!help | ${bot.users.size} Utilisateurs | ${bot.guilds.size} Serveurs`);
+  });
+  
+  bot.on("guildDelete", guild => {
+    bot.user.setActivity(`!help | ${bot.users.size} Utilisateurs | ${bot.guilds.size} Serveurs`);
+  });
+
+
+
+
+
 
 bot.on('message', message => {
 
