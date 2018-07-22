@@ -12,6 +12,14 @@ const ServerStats = {
     botCountID: '470281756986048522',
 };
 
+bot.on('ready', () => {
+    console.log('Bon on')
+    bot.user.setActivity(`!help | ${bot.users.size} Utilisateurs | ${bot.guilds.size} Serveurs`, {
+        type: "STREAMING",
+        url: "https://www.twitch.tv/exential_krushhd"
+      });
+})
+
 bot.on('message', message => {
 
     let args = message.content.slice(prefix.length).trim().split(' ');
