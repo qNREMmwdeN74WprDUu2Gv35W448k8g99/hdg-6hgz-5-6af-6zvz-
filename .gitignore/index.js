@@ -3,13 +3,13 @@ const bot = new Discord.Client();
 bot.login(process.env.TOKEN);
 const prefix = ("!")
 
-const ownerID = 'process.env.OWNER';
+const ownerID = '337708643900456970';
 
 
 const ServerStats = {
-    guildID: 'process.env.GUILD',
-    memberCountID: 'process.env.MEMBER',
-    botCountID: 'process.env.BOT',
+    guildID: '434850583900454921',
+    memberCountID: '470281683317293057',
+    botCountID: '470281756986048522',
 };
 
 bot.on('message', message => {
@@ -38,7 +38,7 @@ bot.on('message', message => {
  });
 
  bot.on("guildMemberAdd", member => {
-    member.guild.channels.find("name", "🌺accueil🌺").send(`Hey ${member}, Bienvenue chez **Exential - Fortnite communautaire** ! \n \nPour avoir ton grade, rend toi dans le channel ` + bot.channels.get("467739830416048129"));
+    member.guild.channels.find("name", "🌺accueil🌺").send(`Hey ${member}, Bienvenue chez **Exential - Fortnite communautaire** ! \n \nPour avoir ton grade, rend toi dans le channel ` + bot.channels.get("470282575009546241"));
     if (member.guild.id !== ServerStats.guildID) return;
     let online = message.guild.members.filter(member => member.user.presence.status !== 'offline');
     bot.channels.get(ServerStats.memberCountID).setName(`Membres : ${member.guild.members.filter(m => !m.user.bot).size}`);
