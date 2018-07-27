@@ -8,8 +8,8 @@ const ownerID = '337708643900456970';
 
 const ServerStats = {
     guildID: '434850583900454921',
-    memberCountID: '470281683317293057',
-    botCountID: '470281756986048522',
+    memberCountID: '472510027912052747',
+    botCountID: '472510048732708895',
 };
 
 
